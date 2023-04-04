@@ -4,7 +4,7 @@ pipeline {
         stage('Build Mule App') {
             steps {
                 bat 'mvn clean install'
-                bat 'xcopy C:/Users/admin/.jenkins/workspace/Dockerdemo-pipeline/target/*.jar C:/opt/my-mule-app/'
+                bat 'copy target\\my-mule-app.jar C:\\opt\\my-mule-app\\'
             }
         }
         stage('Build Docker Image') {
@@ -15,6 +15,11 @@ pipeline {
         stage('Deploy to Docker Desktop') {
             steps {
                 bat 'docker run -d -p 8081:8081 my-mule-app'
+            }
+        }
+        stage('Test Deployment') {
+            steps {
+                // Execute commands to test the deployment
             }
         }
     }
