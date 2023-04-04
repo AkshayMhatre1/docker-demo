@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Build Mule App') {
             steps {
+                 sh 'mvn clean install'
                 
                  sh 'mvn package'
         
