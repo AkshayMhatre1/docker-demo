@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build Mule App') {
             steps {
-                 sh 'mvn clean install'
+                 bat 'mvn clean install'
             }
         }
         stage('Build Docker Image') {
