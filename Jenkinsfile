@@ -4,11 +4,6 @@ pipeline {
         stage('Build Mule App') {
             steps {
                  sh 'mvn clean install'
-                
-                 sh 'mvn package'
-        
-            
-                 sh 'cp target/my-mule-app.jar /opt/my-mule-app/'
             }
         }
         stage('Build Docker Image') {
