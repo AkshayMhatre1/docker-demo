@@ -4,7 +4,7 @@ pipeline {
         stage('Build Mule App') {
             steps {
                 bat 'mvn clean install'
-                bat 'copy C:/Users/admin/.jenkins/workspace/Dockerdemo-pipeline/target/*.jar C:/opt/my-mule-app/'
+                bat 'xcopy C:/Users/admin/.jenkins/workspace/Dockerdemo-pipeline/target/*.jar C:/opt/my-mule-app/'
             }
         }
         stage('Build Docker Image') {
