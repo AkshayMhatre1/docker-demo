@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t my-mule-app .'
+                sh 'docker build -t docker-demo .'
             }
         }
         stage('Deploy to Docker Desktop') {
             steps {
-                sh 'docker run -d -p 8081:8081 my-mule-app'
+                sh 'docker run -d -p 8081:8081 docker-demo'
             }
         }
         stage('Test Deployment') {
