@@ -1,21 +1,18 @@
 # Base image
-FROM mcr.microsoft.com/powershell:7.1.5-alpine-3.13
-
-
+FROM openjdk:11-alpine
 
 # Install Mule runtime
-RUN mkdir C:\mule
-COPY C:\mule-ee-distribution-standalone-4.4.0.zip C:\mule
-# RUN powershell.exe -Command "Expand-Archive C:\mule\mule-ee-distribution-standalone-4.4.0.zip -DestinationPath C:\mule"
-RUN pwsh -Command "Expand-Archive C:\mule\mule-ee-distribution-standalone-4.4.0.zip -DestinationPath C:\mule"
+RUN mkdir /mule
+COPY ./mule-ee-distribution-standalone-4.4.0.zip /mule
+RUN unzip /mule/mule-ee-distribution-standalone-4.4.0.zip -d /mule
 
 # Expose Mule ports
 EXPOSE 8081
 EXPOSE 8091
 
 # Set Mule home and working directory
-ENV MULE_HOME C:\mule\mule-ee-distribution-standalone-4.4.0
+ENV MULE_HOME /mule/mule-ee-distribution-standalone-4.4.0
 WORKDIR $MULE_HOME
 
 # Start Mule runtime
-CMD ["bin/mule.bat"]
+CMD ["bin/mule"] 
