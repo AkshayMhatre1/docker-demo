@@ -5,7 +5,7 @@ ENV MULE_VERSION=4.4.0
 #Add mule runtime in Docker Container
 ENV MULE_HOME /opt/mule
 
-#https://developer.mulesoft.com/download-mule-esb-runtime
+#https://developer.mulesoft.com/download-mule-esb-runtime abcd
 ADD mule-ee-distribution-standalone-4.4.0.zip /opt
 #ADD test-muleapp.jar /opt
 
