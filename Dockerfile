@@ -6,7 +6,8 @@ ENV MULE_VERSION=4.4.0
 ENV MULE_HOME /opt/mule
 
 #https://developer.mulesoft.com/download-mule-esb-runtime
-ADD D:/mule-ee-distribution-standalone-4.4.0.zip /opt
+ADD ../my-files/mule-ee-distribution-standalone-4.4.0.zip /opt
+
 #ADD test-muleapp.jar /opt
 
 RUN set -x \
