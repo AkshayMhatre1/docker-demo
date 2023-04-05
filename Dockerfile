@@ -1,5 +1,5 @@
 # Base image
-FROM openjdk:11
+FROM mcr.microsoft.com/powershell:7.1.5-alpine-3.13
 
 RUN apt-get update && \
     apt-get install -y powershell
