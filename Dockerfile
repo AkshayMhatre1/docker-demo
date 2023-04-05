@@ -16,4 +16,3 @@ WORKDIR $MULE_HOME
 
 # Start Mule runtime
 CMD ["bin/mule.bat"]
-]
