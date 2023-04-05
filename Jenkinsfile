@@ -1,19 +1,20 @@
 pipeline {
     agent any
+    
+    environment {
+        DOCKER_HOME = 'C:\\Program Files\\Docker'
+    }
+    
     stages {
-        stage('Build') {
-            steps {
-                bat 'mvn clean package'
-            }
-        }
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t my-mule-app .'
+                bat "${DOCKER_HOME}\\docker.exe build -t my-mule-app:latest ."
             }
         }
-        stage('Run Docker Container') {
+        
+        stage('Deploy to Docker Desktop') {
             steps {
-                bat 'docker run -p 8080:8080 my-mule-app'
+                bat "${DOCKER_HOME}\\docker.exe run -p 8081:8081 --name my-mule-app -d my-mule-app:latest"
             }
         }
     }
