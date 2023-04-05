@@ -1,10 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Build Mule App') {
+        stage('Build') {
             steps {
-                bat 'mvn clean install'
-                bat 'copy target\\my-mule-app.jar C:\\opt\\my-mule-app\\'
+                bat 'mvn clean package'
             }
         }
         stage('Build Docker Image') {
@@ -12,14 +11,9 @@ pipeline {
                 bat 'docker build -t my-mule-app .'
             }
         }
-        stage('Deploy to Docker Desktop') {
+        stage('Run Docker Container') {
             steps {
-                bat 'docker run -d -p 8081:8081 my-mule-app'
-            }
-        }
-        stage('Test Deployment') {
-            steps {
-                // Execute commands to test the deployment
+                bat 'docker run -p 8080:8080 my-mule-app'
             }
         }
     }
