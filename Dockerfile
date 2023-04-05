@@ -6,10 +6,10 @@ ENV MULE_HOME=C:\\mule
 
 WORKDIR C:\\
 
-COPY mule-standalone-4.4.2.zip C:\\mule-standalone-4.4.2.zip
+COPY mule-ee-distribution-standalone-4.4.0.zip C:\\mule-ee-distribution-standalone-4.4.0.zip
 
 RUN powershell -Command \
-    Expand-Archive -Path 'C:\\mule-standalone-4.4.2.zip' -DestinationPath 'C:\\mule'; \
-    Remove-Item 'C:\\mule-standalone-4.4.2.zip' -Force
+    Expand-Archive -Path 'C:\\mule-ee-distribution-standalone-4.4.0.zip' -DestinationPath 'C:\\mule'; \
+    Remove-Item 'C:\\mule-ee-distribution-standalone-4.4.0.zip' -Force
 
 CMD ["C:\\mule\\bin\\mule.bat"]
