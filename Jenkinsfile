@@ -12,7 +12,7 @@ pipeline {
 
         // Copy Mule app to Docker build directory
         //bat "copy C:\\Users\\admin\\.jenkins\\workspace\\Dockerdemo-pipeline\\target\\*.jar .\\docker\\*.jar"
-        bat "xcopy C:\\Users\\admin\\.jenkins\\workspace\\Dockerdemo-pipeline\\target\\*.jar .\\docker\\ /s"
+        bat "xcopy C:\\Users\\admin\\.jenkins\\workspace\\Dockerdemo-pipeline\\target\\*.jar .\\docker\\ /s /Y"
 
 
       }
