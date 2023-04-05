@@ -2,13 +2,13 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_HOME = 'C:\\Progra~1\\Docker\\Docker\\resources\\bin'
+        DOCKER_HOME = 'C:\\Docker'
     }
     
     stages {
         stage('Build Docker Image') {
             steps {
-                bat "${DOCKER_HOME}\\docker.exe build -t my-mule-app:latest ."
+                bat "docker build -t my-mule-app:latest C:\\Docker"
             }
         }
         
