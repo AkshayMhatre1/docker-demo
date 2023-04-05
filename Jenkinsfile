@@ -11,7 +11,7 @@ pipeline {
         bat "mvn clean package"
 
         // Copy Mule app to Docker build directory
-        bat "copy target\\my-mule-app.zip .\\docker\\my-mule-app.zip"
+        bat "copy C:\\Users\admin\\.jenkins\\workspace\Dockerdemo-pipeline\\target\\*.jar .\\docker\\my-mule-app.zip"
       }
     }
 
