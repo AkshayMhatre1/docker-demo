@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows/servercore:ltsc2019
+FROM openjdk:11
 
 LABEL maintainer="Your Name"
 
