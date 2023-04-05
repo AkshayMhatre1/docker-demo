@@ -1,21 +1,32 @@
 pipeline {
-    agent any
-    
-    environment {
-        DOCKER_HOME = 'C:\\Docker'
+  agent any
+
+  stages {
+    stage('Build') {
+      steps {
+        // Checkout Mule app code from version control
+        checkout scm
+
+        // Build Mule app using Maven
+        bat "mvn clean package"
+
+        // Copy Mule app to Docker build directory
+        bat "copy target/my-mule-app.zip .\\docker\\my-mule-app.zip"
+      }
     }
-    
-    stages {
-        stage('Build Docker Image') {
-            steps {
-                bat "docker build -t my-mule-app:latest C:\\Docker"
-            }
-        }
-        
-        stage('Deploy to Docker Desktop') {
-            steps {
-                bat "${DOCKER_HOME}\\docker.exe run -p 8081:8081 --name my-mule-app -d my-mule-app:latest"
-            }
-        }
+
+    stage('Build Docker image') {
+      steps {
+        // Build Docker image using Dockerfile
+        bat "docker build -t my-mule-app:latest .\\docker"
+      }
     }
+
+    stage('Run Docker container') {
+      steps {
+        // Run Docker container using built image
+        bat "docker run -d -p 8081:8081 -p 8091:8091 my-mule-app:latest"
+      }
+    }
+  }
 }
