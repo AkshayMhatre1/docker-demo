@@ -3,7 +3,7 @@ FROM openjdk:11
 
 # Install Mule runtime
 RUN mkdir C:\mule
-COPY mule-ee-distribution-standalone-4.4.0.zip C:\mule
+COPY C:\mule-ee-distribution-standalone-4.4.0.zip C:\mule
 RUN powershell.exe -Command "Expand-Archive C:\mule\mule-ee-distribution-standalone-4.4.0.zip -DestinationPath C:\mule"
 
 # Expose Mule ports
