@@ -28,7 +28,7 @@ pipeline {
     stage('Run Docker container') {
       steps {
         // Run Docker container using built image
-        bat "docker run -d -p 8081:8081 -p 8091:8091 my-mule-app:latest"
+        bat "docker run --privileged -d -p 8081:8081 -p 8091:8091 my-mule-app:latest"
       }
     }
   }
