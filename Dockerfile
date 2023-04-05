@@ -1,6 +1,8 @@
 # Base image
 FROM openjdk:11
 
+RUN apt-get update && \
+    apt-get install -y powershell
 # Install Mule runtime
 RUN mkdir C:\mule
 COPY C:\mule-ee-distribution-standalone-4.4.0.zip C:\mule
