@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_HOME = 'C:\\Program Files\\Docker\\Docker\\resources\\bin'
+        DOCKER_HOME = 'C:\\Progra~1\\Docker\\Docker\\resources\\bin'
     }
     
     stages {
